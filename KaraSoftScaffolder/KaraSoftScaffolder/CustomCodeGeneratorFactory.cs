@@ -17,13 +17,13 @@ namespace KaraSoftScaffolder
         ///  Information about the code generator goes here.
         /// </summary>
         private static CodeGeneratorInformation _info = new CodeGeneratorInformation(
-            displayName: "Karasoft Scaffolder",
-            description: "This is a custom scaffolder.",
+            displayName: "Karasoft MVC 5 for C.R.U.D",
+            description: "Generates ASP.NET MVC controller and views for C.R.U.D (inserting, editing, deleting, and listing) from an Entity Framework data context.",
             author: "Ashraf Ezzat",
             version: new Version(1, 0, 0, 0),
             id: typeof(CustomCodeGenerator).Name,
             icon: ToImageSource(Resources._TemplateIconSample),
-            gestures: new[] { "Controller", "View", "Area" },
+            gestures: new[] { "Controller" },
             categories: new[] { Categories.Common, Categories.MvcController, Categories.Other });
 
         public CustomCodeGeneratorFactory()
@@ -47,12 +47,15 @@ namespace KaraSoftScaffolder
         /// <returns>True if valid, False otherwise</returns>
         public override bool IsSupported(CodeGenerationContext codeGenerationContext)
         {
-            if (codeGenerationContext.ActiveProject.CodeModel.Language != EnvDTE.CodeModelLanguageConstants.vsCMLanguageCSharp)
+            if (ProjectLanguage.CSharp.Equals(codeGenerationContext.ActiveProject.GetCodeLanguage()))
             {
-                return false;
+                FrameworkName targetFramework = codeGenerationContext.ActiveProject.GetTargetFramework();
+                return (targetFramework != null) &&
+                        String.Equals(".NetFramework", targetFramework.Identifier, StringComparison.OrdinalIgnoreCase) &&
+                        targetFramework.Version >= new Version(4, 5);
             }
 
-            return true;
+            return false;
         }
         /// <summary>
         /// Helper method to convert Icon to Imagesource.
