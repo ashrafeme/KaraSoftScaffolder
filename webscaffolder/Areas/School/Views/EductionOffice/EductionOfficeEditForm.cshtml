@@ -1,0 +1,27 @@
+﻿@model webscaffolder.Areas.School.Models.EductionOffice
+
+@if (Model != null && Model.EductionOfficeID != null)
+{
+    @Html.HiddenFor(model => model.EductionOfficeID)
+}
+else
+{
+        <div class="form-group">
+            @Html.LabelFor(model => model.EductionOfficeID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EductionOfficeID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EductionOfficeID,"" , new { @class = "text-danger" })
+            </div>
+        </div>
+}
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EductionOfficeName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EductionOfficeName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EductionOfficeName,"" , new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+

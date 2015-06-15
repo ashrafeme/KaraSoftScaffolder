@@ -3,18 +3,103 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d" Height="176" Width="511" Title="Model Types">
-  <Grid>
-    <Label Content="Choose a Model Type:" HorizontalAlignment="Left"   Margin="36,39,0,0" VerticalAlignment="Top"/>
-    <ComboBox HorizontalAlignment="Left"
-              Margin="169,43,0,0"
-              VerticalAlignment="Top"
-              ItemsSource="{Binding ModelTypes}"
-              DisplayMemberPath="DisplayName"
-              SelectedItem="{Binding SelectedModelType, Mode=OneWayToSource}"
-              Width="311"/>
-    <Button Content="Add" IsDefault="True" HorizontalAlignment="Left" Margin="317,102,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.187,0.75" Click="Button_Click"/>
-    <Button Content="Cancel" IsCancel="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="405,102,0,0"/>
+             mc:Ignorable="d" 
+             ResizeMode="CanResize"
+             MinWidth="540" MinHeight="400"
+             SizeToContent="WidthAndHeight"        
+        Title="Model Types" Width="518">
+    <Window.Resources>
+        <Style TargetType="Label" x:Key="{x:Type Label}">
+            <Setter Property="Margin" Value="0,0,0,0" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+        <Style TargetType="ComboBox" x:Key="{x:Type ComboBox}">
+            <Setter Property="Margin" Value="0,0,0,10" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
 
-  </Grid>
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self},
+                        Path=(Validation.Errors)[0].ErrorContent}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="TextBox" x:Key="{x:Type TextBox}">
+            <Setter Property="Margin" Value="0,0,0,10" />
+            <Setter Property="Height" Value="22" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self},
+                        Path=(Validation.Errors)[0].ErrorContent}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="CheckBox" x:Key="{x:Type CheckBox}">
+            <Setter Property="Margin" Value="0,0,0,9" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+        <Style TargetType="Button" x:Key="{x:Type Button}">
+            <Setter Property="MinWidth" Value="75" />
+            <Setter Property="Height" Value="23" />
+        </Style>
+        <Style TargetType="StackPanel" x:Key="Section">
+            <Setter Property="Margin" Value="20,0,0,10" />
+        </Style>
+    </Window.Resources>
+    <Grid Margin="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" MinWidth="496">
+            <Label Content="Model Class:"    />
+            <ComboBox ItemsSource="{Binding ModelTypes}"
+              DisplayMemberPath="DisplayName"
+
+              SelectedItem="{Binding SelectedModelType, Mode=OneWayToSource}"/>
+
+            <Label Content="Data _context class:"    />
+            <ComboBox ItemsSource="{Binding ContextTypes}"
+              DisplayMemberPath="DisplayName"
+              SelectedItem="{Binding SelectedContextType, Mode=OneWayToSource}"
+                       Margin="0,0,0,20"
+                      />
+
+            <CheckBox Content="Generate views" 
+                      IsChecked="{Binding GenerateViews}" RenderTransformOrigin="1.733,0.787" />
+            <StackPanel Style="{StaticResource Section}" IsEnabled="{Binding GenerateViews}">
+                <CheckBox Content="Over write existing pages" 
+                      IsChecked="{Binding OverwriteViews}"  />
+
+                <CheckBox Content="Reference script libraries" 
+                      IsChecked="{Binding ReferenceScriptLibraries}" />
+                <CheckBox Content="Use a layout page" 
+                      IsChecked="{Binding LayoutPageSelected}" />
+
+                <TextBox Text="{Binding LayoutPageFile}" />
+                <Label Content="(Leave empty if it is set in Razor _viewstart file)" Margin="0,-10,0,0" />
+
+            </StackPanel>
+            <Label Content="Controller name" 
+                   Target="{Binding ElementName=controllerName}" />
+            <TextBox  Name="controllerName" Text="{Binding ControllerName}" Margin="103,-20,-0.4,10" />
+
+            <Label Content="Program title" 
+                   Target="{Binding ElementName=controllerName}" Margin="16,0,0,0" />
+            <TextBox  Text="{Binding ProgramTitle}" Margin="103,-20,-0.4,10" />
+
+            <Label Content="View prefix" 
+                   Target="{Binding ElementName=controllerName}" Margin="26,0,0,0"/>
+            <TextBox  Text="{Binding ViewPrefix}" Margin="103,-20,-0.4,10" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                    Margin="0,11,0,0">
+            <Button Content="Add" IsDefault="True"  Margin="0,0,10,0" VerticalAlignment="Top" Width="75"  Click="Button_Click"/>
+            <Button Content="Cancel" IsCancel="True"  VerticalAlignment="Top" Width="75" />
+
+        </StackPanel>
+    </Grid>
 </Window>
