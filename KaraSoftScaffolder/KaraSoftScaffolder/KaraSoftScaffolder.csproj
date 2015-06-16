@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="CustomCodeGeneratorFactory.cs" />
     <Compile Include="CustomCodeGenerator.cs" />
+    <Compile Include="IServiceProviderExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -68,55 +69,55 @@
     <None Include="Templates\CustomCodeGenerator\CustomTextTemplate.cs.t4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templates\MvcControllerWithContext\Controller.cs.t4">
+    <None Include="Templates\CustomCodeGenerator\MvcControllerWithContext\Controller.cs.t4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templates\MvcControllerWithContext\Controller.vb.t4">
+    <None Include="Templates\CustomCodeGenerator\MvcControllerWithContext\Controller.vb.t4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templates\MvcView\Create.cs.t4">
+    <None Include="Templates\CustomCodeGenerator\MvcView\Create.cs.t4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templates\MvcView\Create.vb.t4">
+    <None Include="Templates\CustomCodeGenerator\MvcView\Create.vb.t4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templates\MvcView\Delete.cs.t4">
+    <None Include="Templates\CustomCodeGenerator\MvcView\Delete.cs.t4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templates\MvcView\Delete.vb.t4">
+    <None Include="Templates\CustomCodeGenerator\MvcView\Delete.vb.t4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templates\MvcView\Details.cs.t4">
+    <None Include="Templates\CustomCodeGenerator\MvcView\Details.cs.t4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templates\MvcView\Details.vb.t4">
+    <None Include="Templates\CustomCodeGenerator\MvcView\Details.vb.t4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templates\MvcView\Edit.cs.t4">
+    <None Include="Templates\CustomCodeGenerator\MvcView\Edit.cs.t4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templates\MvcView\Edit.vb.t4">
+    <None Include="Templates\CustomCodeGenerator\MvcView\Edit.vb.t4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templates\MvcView\Empty.cs.t4">
+    <None Include="Templates\CustomCodeGenerator\MvcView\Empty.cs.t4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templates\MvcView\Empty.vb.t4">
+    <None Include="Templates\CustomCodeGenerator\MvcView\Empty.vb.t4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templates\MvcView\Imports.include.t4">
+    <None Include="Templates\CustomCodeGenerator\MvcView\Imports.include.t4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templates\MvcView\List.cs.t4">
+    <None Include="Templates\CustomCodeGenerator\MvcView\List.cs.t4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templates\MvcView\List.vb.t4">
+    <None Include="Templates\CustomCodeGenerator\MvcView\List.vb.t4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templates\MvcView\ModelMetadataFunctions.cs.include.t4">
+    <None Include="Templates\CustomCodeGenerator\MvcView\ModelMetadataFunctions.cs.include.t4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templates\MvcView\ModelMetadataFunctions.vb.include.t4">
+    <None Include="Templates\CustomCodeGenerator\MvcView\ModelMetadataFunctions.vb.include.t4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

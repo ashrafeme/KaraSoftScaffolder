@@ -14,7 +14,7 @@ namespace KaraSoftScaffolder
     public class CustomCodeGeneratorFactory : CodeGeneratorFactory
     {
         /// <summary>
-        ///  Information about the code generator goes here.
+        ///  Information about the code generator goes here. 
         /// </summary>
         private static CodeGeneratorInformation _info = new CodeGeneratorInformation(
             displayName: "Karasoft MVC 5 for C.R.U.D",

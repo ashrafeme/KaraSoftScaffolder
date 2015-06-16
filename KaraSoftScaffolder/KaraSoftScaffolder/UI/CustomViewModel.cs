@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Scaffolding;
 using Microsoft.AspNet.Scaffolding.EntityFramework;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace KaraSoftScaffolder.UI
@@ -8,7 +9,7 @@ namespace KaraSoftScaffolder.UI
     /// <summary>
     /// View model for code types so that it can be displayed on the UI.
     /// </summary>
-    public class CustomViewModel
+    public class CustomViewModel : INotifyPropertyChanged
     {
         /// <summary>
         /// Constructor
@@ -17,6 +18,10 @@ namespace KaraSoftScaffolder.UI
         public CustomViewModel(CodeGenerationContext context)
         {
             Context = context;
+            GenerateViews = true;
+            OverwriteViews = true;
+            ReferenceScriptLibraries = true;
+            LayoutPageSelected = true;
         }
 
         /// <summary>
@@ -26,6 +31,7 @@ namespace KaraSoftScaffolder.UI
         {
             get
             {
+
                 ICodeTypeService codeTypeService = (ICodeTypeService)Context
                     .ServiceProvider.GetService(typeof(ICodeTypeService));
 
@@ -62,8 +68,41 @@ namespace KaraSoftScaffolder.UI
 
         public ModelType SelectedContextType { get; set; }
 
-        public ModelType SelectedModelType { get; set; }
+        //public ModelType SelectedModelType { get; set; }
+        private ModelType _modelType;
+
+        public ModelType SelectedModelType
+        {
+            get { return _modelType; }
+            set
+            {
+                _modelType = value;
+                OnPropertyChanged("SelectedModelType");
+
+                ControllerName = _modelType.ShortTypeName + "Controller";
+                OnPropertyChanged("ControllerName");
+
+                ProgramTitle = _modelType.ShortTypeName;
+                OnPropertyChanged("ProgramTitle");
+
+                ViewPrefix = _modelType.ShortTypeName;
+                OnPropertyChanged("ViewPrefix");
+            }
+        }
 
         public CodeGenerationContext Context { get; private set; }
+
+        public ModelType DbContextModelType { get; set; }
+
+        public virtual void OnPropertyChanged(string propertyName)
+        {
+            var propertyChanged = PropertyChanged;
+            if (propertyChanged != null)
+            {
+                propertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

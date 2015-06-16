@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaraSoftScaffolderExtension
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaraSoftScaffolder", "KaraSoftScaffolder\KaraSoftScaffolder\KaraSoftScaffolder.csproj", "{C5F95FF6-87AD-44E6-A182-486E3254255A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webscaffolder", "webscaffolder\webscaffolder.csproj", "{97195C06-DFA0-4BCC-800D-E818BDC2C95B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{C5F95FF6-87AD-44E6-A182-486E3254255A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5F95FF6-87AD-44E6-A182-486E3254255A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5F95FF6-87AD-44E6-A182-486E3254255A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{97195C06-DFA0-4BCC-800D-E818BDC2C95B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{97195C06-DFA0-4BCC-800D-E818BDC2C95B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{97195C06-DFA0-4BCC-800D-E818BDC2C95B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{97195C06-DFA0-4BCC-800D-E818BDC2C95B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

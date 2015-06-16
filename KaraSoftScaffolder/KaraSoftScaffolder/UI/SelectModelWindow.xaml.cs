@@ -20,6 +20,7 @@ namespace KaraSoftScaffolder.UI
     /// </summary>
     public partial class SelectModelWindow : Window
     {
+        //private ObservableCollection<CustomViewModel> users = new ObservableCollection<CustomViewModel>();
         public SelectModelWindow(CustomViewModel viewModel)
         {
             InitializeComponent();
@@ -31,5 +32,7 @@ namespace KaraSoftScaffolder.UI
         {
             this.DialogResult = true;
         }
+
+        
     }
 }

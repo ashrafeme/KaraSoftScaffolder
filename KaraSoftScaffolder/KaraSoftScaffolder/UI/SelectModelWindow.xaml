@@ -55,10 +55,13 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Vertical" MinWidth="496">
             <Label Content="Model Class:"    />
-            <ComboBox ItemsSource="{Binding ModelTypes}"
-              DisplayMemberPath="DisplayName"
-
-              SelectedItem="{Binding SelectedModelType, Mode=OneWayToSource}"/>
+            <ComboBox Name="modelTypeComboBox" 
+                      ItemsSource="{Binding ModelTypes, Mode=OneWay}"
+                      IsEditable="true" 
+                      DisplayMemberPath="DisplayName"
+                      TextSearch.TextPath="DisplayName"
+                      SelectedItem="{Binding SelectedModelType, UpdateSourceTrigger=LostFocus}"
+                      Text="{Binding ModelTypeName, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
 
             <Label Content="Data _context class:"    />
             <ComboBox ItemsSource="{Binding ContextTypes}"

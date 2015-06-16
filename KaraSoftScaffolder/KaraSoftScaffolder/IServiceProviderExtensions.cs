@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace KaraSoftScaffolder
+{
+   internal static  class IServiceProviderExtensions
+    {
+        public static TService GetService<TService>(this IServiceProvider provider) where TService : class
+        {
+            if (provider == null)
+            {
+                throw new ArgumentNullException("provider");
+            }
+
+            return (TService)provider.GetService(typeof(TService));
+        }
+
+        public static bool IsServiceAvailable<TService>(this IServiceProvider provider) where TService : class
+        {
+            if (provider == null)
+            {
+                throw new ArgumentNullException("provider");
+            }
+
+            return GetService<TService>(provider) != null;
+        }
+    }
+}
