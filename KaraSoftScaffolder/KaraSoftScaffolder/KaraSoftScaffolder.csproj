@@ -99,6 +99,9 @@
     <None Include="Templates\CustomCodeGenerator\MvcView\Edit.vb.t4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Templates\CustomCodeGenerator\MvcView\EditForm.cs.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Templates\CustomCodeGenerator\MvcView\Empty.cs.t4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
